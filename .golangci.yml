@@ -155,7 +155,8 @@ linters-settings:
       - cheques
       - initialise
       - favourite
-      - Tyres
+      - tyre
+      - tyres
       - packageid
   lll:
     # max line length, lines longer will be reported. Default is 120.
