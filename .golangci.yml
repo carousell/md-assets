@@ -300,7 +300,16 @@ issues:
         - dupl
         - gosec
         - funlen
-
+    # Trans server to be removed so exclude it for now
+    - path: transservice/transservice_mock\.go
+      linters:
+        - golint
+        - govet
+    # Trans server to be removed so exclude it for now
+    - path: bconfservice/bconfservice_mock\.go
+      linters:
+        - golint
+        - govet
     # Exclude known linters from partially hard-vendored code,
     # which is impossible to exclude via "nolint" comments.
     # - path: internal/hmac/
