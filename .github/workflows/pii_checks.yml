@@ -1,0 +1,26 @@
+name: PII Data Check
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main, staging, uac-*, ice-*, jom-*, scm-*, pergi-*, muddah-*, terbaik-*, autoteam-*, berurusan-*]
+
+jobs:
+  pii_check:
+    uses: carousell/md-reusable-workflows/.github/workflows/pii-check.yml@main
+    secrets: inherit
+    with:
+      TEAM: "default"   
+
+
+# Provide the team name from the list below, 
+# if your team name is not available, ask security team to add, else use the default.
+  #     "default"
+  #     "auto"
+  #     "backend_platform"
+  #     "data_eng"
+  #     "client_platform"
+  #     "marketplace"
+  #     "monetisation"
+  #     "property"
+  #     "trust"
