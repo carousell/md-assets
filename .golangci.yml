@@ -136,6 +136,14 @@ linters-settings:
     min-len: 3
     # minimal occurrences count to trigger, 3 by default
     min-occurrences: 3
+  depguard:
+    rules:
+      logger:
+        deny:
+          # logging is allowed only by logutils.Log,
+          # logrus is allowed to use only in logutils package.
+          - pkg: "github.com/sirupsen/logrus"
+            desc: logging is allowed only by logutils.Log
   # depguard:
   #   list-type: blacklist
   #   include-go-root: false
@@ -260,17 +268,15 @@ linters:
     - godox
     - gofmt
     - goimports
-    - golint
+    - revive
     - gosec
     - gosimple
     - govet
     - ineffassign
-    - interfacer
     - misspell
     - nakedret
-    - scopelint
     - staticcheck
-    - structcheck
+    - exportloopref
     - stylecheck
     - typecheck
     - unconvert
@@ -286,6 +292,11 @@ linters:
   # - maligned
   # - prealloc
   # - varcheck
+  # - scopelint
+  # - structcheck
+  # - interfacer
+  # - golint
+
 
 issues:
   # List of regexps of issue texts to exclude, empty list by default.
