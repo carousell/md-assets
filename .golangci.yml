@@ -145,12 +145,14 @@ linters-settings:
         deny:
           - pkg: io/ioutil
             desc: The io/ioutil package has been deprecated, see https://go.dev/doc/go1.16#ioutil
+          # - adding denied package here
       test:
         files:
           - $test
-        # deny:
-          # - adding denied package here
-        
+        deny:
+          - pkg: io/ioutil
+            desc: The io/ioutil package has been deprecated, see https://go.dev/doc/go1.16#ioutil
+          # - adding denied package here        
   # depguard:
   #   list-type: blacklist
   #   include-go-root: false
