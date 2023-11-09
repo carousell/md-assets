@@ -138,12 +138,19 @@ linters-settings:
     min-occurrences: 3
   depguard:
     rules:
-      logger:
+      main:
+        files:
+          - $all
+          - "!$test"
         deny:
-          # logging is allowed only by logutils.Log,
-          # logrus is allowed to use only in logutils package.
-          - pkg: "github.com/sirupsen/logrus"
-            desc: logging is allowed only by logutils.Log
+          - pkg: io/ioutil
+            desc: The io/ioutil package has been deprecated, see https://go.dev/doc/go1.16#ioutil
+      test:
+        files:
+          - $test
+        # deny:
+          # - adding denied package here
+        
   # depguard:
   #   list-type: blacklist
   #   include-go-root: false
